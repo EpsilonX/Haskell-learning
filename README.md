@@ -22,7 +22,7 @@ Contents
   * The read function takes a string and returns a type which is a member of Read.
   * ```read "4" + 3.8 ```
   *  use **type annotations** to explicitly specify the type <br />
-  ```read "5" :: Int```
+  ```read "5" :: Int```c
   ```read "(3, 'a')" :: (Int, Char) ```
 5. Enum
   * Enum members are sequentially ordered types
