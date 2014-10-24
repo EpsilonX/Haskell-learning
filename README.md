@@ -5,8 +5,8 @@ By <b>Jeffrey Liu</b>
 
 Contents
 ---
-1. [Basic Typeclass](#-basic-typeclass)
-2. [Elegent of Haskell](#-elegant-of-haskell)
+1. [Basic Typeclass](#basic-typeclass)
+2. [Elegent of Haskell](#elegant-of-haskell)
 
 ## Basic Typeclass
 
