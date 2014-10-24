@@ -6,6 +6,7 @@ By <b>Jeffrey Liu</b>
 Contents
 ---
 1. [Basic Typeclass](#title1)
+2. [Elegent of Haskell](#title2)
 
 ### <a name="title1"></a> Basic Typeclass
 ----
@@ -41,3 +42,24 @@ Contents
   * Use **fromIntegral** to parse Integral to Num, ```fromIntegral (length [1,2,3,4]) + 3.2```
 9. Floating
   * Types in this class: Float, Double
+
+<br />
+
+
+### <a name="title2"></a> Elegant of Haskell
+----
+1. Fibonacci
+```haskell
+fibs :: [Integer]
+fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
+```
+
+2. QuickSort
+```haskell
+quicksort :: (Ord a) => [a] -> [a]
+quicksort []     = []
+quicksort (x:xs) =
+    let smallerSorted = quicksort [a | a <- xs , a <= x]
+        biggerSorted = quicksort [a | a <- xs, a > x]
+    in smallerSorted ++ [x] ++ biggerSorted
+```
