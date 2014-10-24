@@ -5,11 +5,10 @@ By <b>Jeffrey Liu</b>
 
 Contents
 ---
-1. [Basic Typeclass](#title1)
-2. [Elegent of Haskell](#title2)
+1. [Basic Typeclass](#-basic-typeclass)
+2. [Elegent of Haskell](#-elegant-of-haskell)
 
-### <a name="title1"></a> Basic Typeclass
-----
+## Basic Typeclass
 
 1. Eq
   * == and /=
@@ -43,11 +42,8 @@ Contents
 9. Floating
   * Types in this class: Float, Double
 
-<br />
+##Elegant of Haskell
 
-
-### <a name="title2"></a> Elegant of Haskell
-----
 1. Fibonacci
 ```haskell
 fibs :: [Integer]
