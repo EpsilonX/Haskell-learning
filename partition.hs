@@ -1,0 +1,5 @@
+partition' :: ( a -> Bool) -> [a] -> ([a],[a])
+partition' _ [] = ([],[])
+partition' f (x:xs)
+    | f x = (x:(fst$partition' f xs), snd$partition' f xs)
+    | otherwise = (fst$partition' f xs, x:(snd$partition' f xs))
