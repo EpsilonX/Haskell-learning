@@ -9,7 +9,7 @@ Contents
 2. [Elegent of Haskell](#elegant-of-haskell)
 3. [Three rules of Lambda Calculus](#three-rules-of-lambda-calculus)
 4. [Higher Order Functions](#higher-order-functions)
-
+5. [Type, Kind and Info](#type-kind-and-info)
 ## Basic Typeclass
 
 1. Eq
@@ -83,3 +83,14 @@ Contents
     takes a predicate (a predicate is a function that tells whether something is true or not, so in our case, a function that returns a boolean value) and a list and then returns the list of elements that satisfy the predicate.
     * folds (foldl::(a -> b -> a) -> a -> [b] -> a and foldr::(a -> b -> b) -> b -> [a] -> b): we usually use right folds when we're building up new lists from a list.
     <br/> Folds can be used to implement any function where you traverse a list once, element by element, and then return something based on that. Whenever you want to traverse a list to return something, chances are you want a fold.
+
+##Type, Kind and Info
+1. Type
+
+    use ```:t``` on a value to get its type
+2. Kind
+
+    use ```:k``` on a type to get its kind
+3. Info
+
+    use ```:info``` on a typeclass to get its instances
