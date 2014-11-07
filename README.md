@@ -10,6 +10,7 @@ Contents
 3. [Three rules of Lambda Calculus](#three-rules-of-lambda-calculus)
 4. [Higher Order Functions](#higher-order-functions)
 5. [Type, Kind and Info](#type-kind-and-info)
+6. [I/O Action](#I-O-Action)
 ## Basic Typeclass
 
 1. Eq
@@ -90,7 +91,59 @@ Contents
     use ```:t``` on a value to get its type
 2. Kind
 
-    use ```:k``` on a type to get its kind
+    use ```:k``` on a type (or a typeclass) to get its kind
 3. Info
 
-    use ```:info``` on a typeclass to get its instances
+    use ```:info```(or ```:i```) on a typeclass/type to get its definition and instances, or a function to get its definition.
+4. Browse
+
+    use ```:browse``` to list a module
+
+##I/O Action
+1. return () :
+they make I/O actions that don't really do anything except have an encapsulated result and that result is thrown away because it isn't bound to a name. We can use return in combination with <- to bind stuff to names.
+<br/>return is sort of the opposite to <-. While return takes a value and wraps it up in a box, <- takes a box (and performs it) and takes the value out of it, binding it to a name. But doing this is kind of redundant, especially since you can use let bindings in do blocks to bind to names
+
+2. putStr,putStrLn,putChar: Output String -> IO ()
+<br/> print = putStrLn . show
+
+3. getStr,getStrLn,getChar: Input IO() -> String
+
+4. sequence:: [IO a] -> IO [a]
+```
+main = do
+  rs <- sequence [getLine,getLine,getLine]
+  print rs
+
+  sequence (map print[1..5])
+```
+
+5. mapM = sequence . map
+<br/> mapM_ = mapM (omit the result of IO action)
+
+6. forever: takes an I/O action and returns an I/O action that just repeats the I/O action it got forever.
+```
+import Control.Monad
+import Data.Char
+main = forever $ do
+  putStr "Give me some imput: "
+  l <- getLine
+  putStrLn $ map toUpper l
+```
+
+7. forM:is like mapM, only that it has its parameters switched around.
+
+8. openFile :: FilePath -> IOMode -> IO Handle
+  <br/>FilePath = String
+  <br/>data IOMode = ReadMode | WriteMode | AppendMode | ReadWriteMode
+
+9. withFile :: FilePath -> IOMode -> (Handle -> IO a) -> IO a
+
+10. readFile, writeFile, appendFile
+
+11. hGetContents, hClose
+
+12. hSetBuffering
+<br/> BufferMode = NoBuffering | LineBuffering | BlockBuffering (Maybe Int)
+
+13. hFlush: flush buffer
