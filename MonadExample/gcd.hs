@@ -40,3 +40,4 @@ output = mapM_ putStrLn . fromDiffList. snd . runWriter . finalCountDown
 
 output2 :: Int -> IO ()
 output2 = mapM_ putStrLn .  snd . runWriter . finalCountDown'
+
